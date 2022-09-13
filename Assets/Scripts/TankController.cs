@@ -5,6 +5,9 @@ using UnityEngine;
 public class TankController : MonoBehaviour
 {
     [SerializeField] float _maxSpeed = .25f;
+    public GameObject projectile;
+    public GameObject barrel;
+    public float launchVelocity = 1700f;
     public float MaxSpeed 
     {
         get => _maxSpeed;
@@ -23,6 +26,7 @@ public class TankController : MonoBehaviour
     {
         MoveTank();
         TurnTank();
+
     }
 
     public void MoveTank()
@@ -44,5 +48,16 @@ public class TankController : MonoBehaviour
         Quaternion turnOffset = Quaternion.Euler(0, turnAmountThisFrame, 0);
         // apply quaternion to the rigidbody
         _rb.MoveRotation(_rb.rotation * turnOffset);
+    }
+
+     void Update()
+    {
+        if (Input.GetKeyDown("space"))
+        {
+            GameObject ball = Instantiate(projectile, barrel.transform.position,
+                                                      barrel.transform.rotation);
+            ball.GetComponent<Rigidbody>().AddRelativeForce(new Vector3
+                                                 (0, 0, launchVelocity));
+        }
     }
 }
