@@ -1576,10 +1576,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 509303ee69e48a841ac32daa0fd2a2fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxSpeed: 0.25
+  _maxSpeed: 0.1
   projectile: {fileID: 1656662358989127909, guid: c70c3884b4b811b419d543d16e641312, type: 3}
   barrel: {fileID: 1713827897}
-  launchVelocity: 700
   _turnSpeed: 2
 --- !u!114 &732590197
 MonoBehaviour:

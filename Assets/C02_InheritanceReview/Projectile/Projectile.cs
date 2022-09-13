@@ -13,15 +13,15 @@ public abstract class Projectile : MonoBehaviour
         [SerializeField] protected Rigidbody RB;
         [SerializeField] ParticleSystem _impactParticles;
         [SerializeField] AudioClip _impactSound;
-        [SerializeField] ParticleSystem _launchParticles;
-        [SerializeField] AudioClip _launchSound;
+
     private void OnTriggerEnter(Collider other)
         {
             Debug.Log("Projectile collision!");
             Feedback();
             Impact(other);
-            gameObject.SetActive(false);
-        }
+        //gameObject.SetActive(false);
+            Destroy(this.gameObject);
+    }
 
         private void FixedUpdate()
         {
@@ -44,17 +44,7 @@ public abstract class Projectile : MonoBehaviour
                 AudioHelper.PlayClip2D(_impactSound, 1f);
             }
         }
-        private void Start()
-        {
-             if (_launchParticles != null)
-             {
-                  _launchParticles = Instantiate(_launchParticles, transform.position, Quaternion.identity);
-             }
-             if (_launchSound != null)
-             {
-                 AudioHelper.PlayClip2D(_launchSound, 1f);
-             }
-        }
+
 }
 
 

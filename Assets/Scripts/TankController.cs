@@ -7,7 +7,6 @@ public class TankController : MonoBehaviour
     [SerializeField] float _maxSpeed = .25f;
     public GameObject projectile;
     public GameObject barrel;
-    public float launchVelocity = 1700f;
     public float MaxSpeed 
     {
         get => _maxSpeed;
@@ -56,8 +55,6 @@ public class TankController : MonoBehaviour
         {
             GameObject ball = Instantiate(projectile, barrel.transform.position,
                                                       barrel.transform.rotation);
-            //ball.GetComponent<Rigidbody>().AddRelativeForce(new Vector3
-                                             //    (0, 0, launchVelocity));
         }
     }
 }
