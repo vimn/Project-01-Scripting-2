@@ -56,8 +56,8 @@ public class TankController : MonoBehaviour
         {
             GameObject ball = Instantiate(projectile, barrel.transform.position,
                                                       barrel.transform.rotation);
-            ball.GetComponent<Rigidbody>().AddRelativeForce(new Vector3
-                                                 (0, 0, launchVelocity));
+            //ball.GetComponent<Rigidbody>().AddRelativeForce(new Vector3
+                                             //    (0, 0, launchVelocity));
         }
     }
 }

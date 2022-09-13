@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Explosion : MonoBehaviour
 {
+    public GameObject explosion;
     // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        var exp = GetComponent<ParticleSystem>();
-        exp.Play();
-        Destroy(gameObject, exp.duration);
+        Debug.Log("I've been struck!");
+        Instantiate(explosion, other.transform);
     }
 }
