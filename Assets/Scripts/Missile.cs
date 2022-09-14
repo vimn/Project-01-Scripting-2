@@ -13,13 +13,13 @@ public class Missile : Projectile
     [SerializeField] AudioClip _launchSound;
 
     private IEnumerator coroutine;
-    Boss boss;
+    IDamageable damage;
     protected override void Impact(Collision target)
     {
-        boss = target.gameObject.GetComponent<Boss>();
-        if(boss != null)
+        damage = target.gameObject.GetComponent<IDamageable>();
+        if(damage != null)
         {
-            boss.DecreaseHealth(_damage);
+            damage.DecreaseHealth(_damage);
         }
         
         

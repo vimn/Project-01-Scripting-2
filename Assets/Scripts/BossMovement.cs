@@ -6,7 +6,7 @@ public class BossMovement : MonoBehaviour
 {
     int bossPhase;
     bool isMoving = false;
-    Boss boss;
+    IDamageable boss;
     [SerializeField] GameObject bossBody;
     [SerializeField] Vector3 nwPosition;
     [SerializeField] Vector3 nePosition;
@@ -73,7 +73,7 @@ public class BossMovement : MonoBehaviour
     private void Start()
     {
         bossPhase = 1;
-        boss = this.gameObject.GetComponent<Boss>();
+        boss = this.gameObject.GetComponent<IDamageable>();
     }
 
     IEnumerator dive(Transform fromPosition, float duration)

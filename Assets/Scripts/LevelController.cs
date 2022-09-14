@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class LevelController : MonoBehaviour
 {
-    // Start is called before the first frame update
-
-    // Update is called once per frame
+    public IDamageable player;
+    public IDamageable boss;
+    public TextMeshProUGUI bossHealth;
+    public TextMeshProUGUI playerHealth;
     void Update()
     {
         if (Input.GetKeyDown("backspace"))
@@ -18,5 +20,7 @@ public class LevelController : MonoBehaviour
         {
             Application.Quit();
         }
+        bossHealth.text = "Boss health: " + boss._currentHealth.ToString();
+        playerHealth.text = "Player health: " + player._currentHealth.ToString();
     }
 }

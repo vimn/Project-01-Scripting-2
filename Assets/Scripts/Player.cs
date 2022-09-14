@@ -11,15 +11,12 @@ public class Player : MonoBehaviour
     public TextMeshProUGUI txt;
 
     TankController _tankController;
+    IDamageable damageable;
     // Start is called before the first frame update
     private void Awake()
     {
         _tankController = GetComponent<TankController>();
-    }
-
-    private void Start()
-    {
-        _currentHealth = _maxHealth;
+        damageable = GetComponent<IDamageable>();
     }
 
     public void IncreaseHealth(int amount) 
@@ -37,29 +34,6 @@ public class Player : MonoBehaviour
     {
         invincible = false;
     }
-    public void DecreaseHealth(int amount) 
-    {
-        if (!invincible)
-        {
-            _currentHealth -= amount;
-        }
-        Debug.Log("Player's health: " + _currentHealth);
-        if (_currentHealth <= 0) 
-        {
-            Kill();
-        }
-    }
 
-    public void Kill() 
-    {
-        if (!invincible) 
-        {
-            gameObject.SetActive(false);
-        }
-        
-    }
-    private void Update()
-    {
-        txt.text = "Player health: " + _currentHealth;
-    }
+
 }
