@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] int _maxHealth = 3;
     int _currentHealth;
     public bool invincible = false;
+    public TextMeshProUGUI txt;
 
     TankController _tankController;
     // Start is called before the first frame update
@@ -58,6 +60,6 @@ public class Player : MonoBehaviour
     }
     private void Update()
     {
-       // Debug.Log(invincible);
+        txt.text = "Player health: " + _currentHealth;
     }
 }
