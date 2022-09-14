@@ -10,6 +10,7 @@ public class LevelController : MonoBehaviour
     public IDamageable boss;
     public TextMeshProUGUI bossHealth;
     public TextMeshProUGUI playerHealth;
+    [SerializeField] AudioClip _music;
     void Update()
     {
         if (Input.GetKeyDown("backspace"))
@@ -20,7 +21,11 @@ public class LevelController : MonoBehaviour
         {
             Application.Quit();
         }
-        bossHealth.text = "Boss health: " + boss._currentHealth.ToString();
-        playerHealth.text = "Player health: " + player._currentHealth.ToString();
+        bossHealth.text = "Boss health: " + boss._currentHealth.ToString() + " / " + boss._maxHealth.ToString();
+        playerHealth.text = "Player health: " + player._currentHealth.ToString() + " / " + player._maxHealth.ToString();
+    }
+    private void Awake()
+    {
+        AudioHelper.PlayClip2D(_music, .2f);
     }
 }

@@ -156,6 +156,7 @@ MonoBehaviour:
   boss: {fileID: 106040581}
   bossHealth: {fileID: 497289650}
   playerHealth: {fileID: 1226869424}
+  _music: {fileID: 8300000, guid: 12a37d0b1ce6670418af605731492533, type: 3}
 --- !u!4 &36503610
 Transform:
   m_ObjectHideFlags: 0
