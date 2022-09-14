@@ -6,7 +6,7 @@ using UnityEngine;
 
 public abstract class Projectile : MonoBehaviour
 {
-    protected abstract void Impact(Collider boss);
+    protected abstract void Impact(Collision boss);
 
         [Header("Base Settings")]
         [SerializeField] protected float TravelSpeed = .25f;
@@ -14,8 +14,8 @@ public abstract class Projectile : MonoBehaviour
         [SerializeField] ParticleSystem _impactParticles;
         [SerializeField] AudioClip _impactSound;
 
-    private void OnTriggerEnter(Collider other)
-        {
+    private void OnCollisionEnter(Collision other)
+    {
             Debug.Log("Projectile collision!");
             Feedback();
             Impact(other);

@@ -14,9 +14,9 @@ public class Missile : Projectile
 
     private IEnumerator coroutine;
     Boss boss;
-    protected override void Impact(Collider target)
+    protected override void Impact(Collision target)
     {
-        boss = target.GetComponent<Boss>();
+        boss = target.gameObject.GetComponent<Boss>();
         if(boss != null)
         {
             boss.DecreaseHealth(_damage);
@@ -35,7 +35,7 @@ public class Missile : Projectile
             AudioHelper.PlayClip2D(_launchSound, 1f);
         }
        // Debug.Log("I have started");
-        coroutine = WaitAndFire(2.0f);
+        coroutine = WaitAndFire(1.0f);
         StartCoroutine(coroutine);
     }
 

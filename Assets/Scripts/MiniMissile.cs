@@ -7,9 +7,9 @@ public class MiniMissile : Projectile
     [SerializeField] int _damage = 1;
 
     Boss boss;
-    protected override void Impact(Collider target)
+    protected override void Impact(Collision target)
     {
-        boss = target.GetComponent<Boss>();
+        boss = target.gameObject.GetComponent<Boss>();
         if (boss != null)
         {
             boss.DecreaseHealth(_damage);

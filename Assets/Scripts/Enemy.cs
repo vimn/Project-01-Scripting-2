@@ -15,9 +15,9 @@ public class Enemy : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnCollisionEnter(Collision collision)
     {
-        Player player = other.gameObject.GetComponent<Player>();
+        Player player = collision.gameObject.GetComponent<Player>();
         if(player != null)
         {
             PlayerImpact(player);

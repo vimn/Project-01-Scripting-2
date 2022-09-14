@@ -12,7 +12,7 @@ public abstract class PowerUpBase : MonoBehaviour
     [SerializeField] AudioClip _collectSound;
     [SerializeField] bool state = false;
     Player box;
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
         Player player = other.gameObject.GetComponent<Player>();
         box = player;

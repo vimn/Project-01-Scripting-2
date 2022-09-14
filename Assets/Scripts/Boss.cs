@@ -5,7 +5,7 @@ using UnityEngine;
 public class Boss : MonoBehaviour
 {
     [SerializeField] int _maxHealth = 3;
-    int _currentHealth;
+    public int _currentHealth;
     public void DecreaseHealth(int amount)
     {
         _currentHealth -= amount;
