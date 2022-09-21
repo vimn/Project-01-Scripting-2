@@ -7,6 +7,7 @@ public class TankController : MonoBehaviour
     [SerializeField] float _maxSpeed = .25f;
     public GameObject projectile;
     public GameObject barrel;
+    private bool allowFire;
     public float MaxSpeed 
     {
         get => _maxSpeed;
@@ -19,6 +20,7 @@ public class TankController : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
+        allowFire = true;
     }
 
     private void FixedUpdate()
@@ -50,11 +52,22 @@ public class TankController : MonoBehaviour
     }
 
      void Update()
-    {
+     {
         if (Input.GetKeyDown("space"))
         {
-            GameObject ball = Instantiate(projectile, barrel.transform.position,
-                                                      barrel.transform.rotation);
+            StartCoroutine(Fire());
         }
+     }
+    IEnumerator Fire()
+    {
+        if (!allowFire)
+        {
+            yield break;
+        }
+        allowFire = false;
+        GameObject ball = Instantiate(projectile, barrel.transform.position,
+                                                      barrel.transform.rotation);
+        yield return new WaitForSeconds(2);
+        allowFire = true;
     }
 }

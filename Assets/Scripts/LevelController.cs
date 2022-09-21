@@ -6,8 +6,8 @@ using TMPro;
 
 public class LevelController : MonoBehaviour
 {
-    public IDamageable player;
-    public IDamageable boss;
+    public Player player;
+    public BossMovement boss;
     public TextMeshProUGUI bossHealth;
     public TextMeshProUGUI playerHealth;
     [SerializeField] AudioClip _music;

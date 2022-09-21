@@ -13,13 +13,13 @@ public class Missile : Projectile
     [SerializeField] AudioClip _launchSound;
 
     private IEnumerator coroutine;
-    IDamageable damage;
+
     protected override void Impact(Collision target)
     {
-        damage = target.gameObject.GetComponent<IDamageable>();
-        if(damage != null)
+        IDamageable damageableObject = target.gameObject.GetComponent<IDamageable>();
+        if(damageableObject != null)
         {
-            damage.DecreaseHealth(_damage);
+            damageableObject.TakeDamage(_damage);
         }
         
         

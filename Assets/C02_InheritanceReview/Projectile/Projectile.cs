@@ -16,7 +16,7 @@ public abstract class Projectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-            Debug.Log("Projectile collision!");
+           // Debug.Log("Projectile collision!");
             Feedback();
             Impact(other);
         //gameObject.SetActive(false);

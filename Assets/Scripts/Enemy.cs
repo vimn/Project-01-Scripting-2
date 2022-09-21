@@ -17,18 +17,17 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Player player = collision.gameObject.GetComponent<Player>();
-        IDamageable damage = collision.gameObject.GetComponent<IDamageable>();
-        if(player != null && damage != null)
+        IDamageable damageableObject = collision.gameObject.GetComponent<IDamageable>();
+        if (damageableObject != null)
         {
-            PlayerImpact(damage);
+            damageableObject.TakeDamage(_damageAmount);
             ImpactFeedback();
         }
     }
 
-    protected virtual void PlayerImpact(IDamageable player)
+    protected virtual void PlayerImpact(Player player)
     {
-        player.DecreaseHealth(_damageAmount);
+        player.TakeDamage(_damageAmount);
     }
 
     private void ImpactFeedback()

@@ -152,8 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f75ed79b99cb29a4f850d091f27bbcd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 732590198}
-  boss: {fileID: 106040581}
+  player: {fileID: 732590197}
+  boss: {fileID: 106040580}
   bossHealth: {fileID: 497289650}
   playerHealth: {fileID: 1226869424}
   _music: {fileID: 8300000, guid: 12a37d0b1ce6670418af605731492533, type: 3}
@@ -444,7 +444,6 @@ GameObject:
   - component: {fileID: 106040577}
   - component: {fileID: 106040579}
   - component: {fileID: 106040580}
-  - component: {fileID: 106040581}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -501,19 +500,7 @@ MonoBehaviour:
   nePosition: {x: 17.88, y: 0.1824026, z: -3.18}
   swPosition: {x: -17.85, y: 0.1824026, z: 3.25}
   sePosition: {x: -3.24, y: 0.1824026, z: -18.13}
---- !u!114 &106040581
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 106040576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbb190954f5085048aeb9a3c512514dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxHealth: 30
+  _maxHealth: 45
   _currentHealth: 0
   deathParticles: {fileID: 3709172761492970802, guid: e1819e0de0d72a3479cb8d012441c05a, type: 3}
   _deathSound: {fileID: 8300000, guid: e686b198f2ce8c14bb597129d8be430f, type: 3}
@@ -571,7 +558,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -624,7 +611,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 233418077}
-  - component: {fileID: 233418076}
   - component: {fileID: 233418075}
   - component: {fileID: 233418074}
   m_Layer: 0
@@ -651,6 +637,10 @@ MonoBehaviour:
   nePosition: {x: 0, y: 0, z: 0}
   swPosition: {x: 0, y: 0, z: 0}
   sePosition: {x: 0, y: 0, z: 0}
+  _maxHealth: 0
+  _currentHealth: 0
+  deathParticles: {fileID: 0}
+  _deathSound: {fileID: 0}
 --- !u!65 &233418075
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -664,19 +654,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 22.302868, y: 4.737341, z: 2.2269688}
   m_Center: {x: -3.4596481, y: 0.0032057762, z: -0.39339542}
---- !u!114 &233418076
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 233418073}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54048647b050d914192f8d890cda1a72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  txt: {fileID: 0}
 --- !u!4 &233418077
 Transform:
   m_ObjectHideFlags: 0
@@ -701,7 +678,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 271509357}
-  - component: {fileID: 271509356}
   - component: {fileID: 271509355}
   - component: {fileID: 271509354}
   m_Layer: 0
@@ -728,6 +704,10 @@ MonoBehaviour:
   nePosition: {x: 0, y: 0, z: 0}
   swPosition: {x: 0, y: 0, z: 0}
   sePosition: {x: 0, y: 0, z: 0}
+  _maxHealth: 0
+  _currentHealth: 0
+  deathParticles: {fileID: 0}
+  _deathSound: {fileID: 0}
 --- !u!65 &271509355
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -741,19 +721,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 22.302868, y: 4.737341, z: 2.2269688}
   m_Center: {x: -3.4596481, y: 0.0032057762, z: -0.39339542}
---- !u!114 &271509356
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 271509353}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54048647b050d914192f8d890cda1a72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  txt: {fileID: 0}
 --- !u!4 &271509357
 Transform:
   m_ObjectHideFlags: 0
@@ -973,7 +940,6 @@ GameObject:
   - component: {fileID: 412015857}
   - component: {fileID: 412015856}
   - component: {fileID: 412015855}
-  - component: {fileID: 412015859}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -1059,19 +1025,6 @@ Transform:
   m_Father: {fileID: 106040577}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &412015859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 412015854}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54048647b050d914192f8d890cda1a72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  txt: {fileID: 0}
 --- !u!1 &460898472
 GameObject:
   m_ObjectHideFlags: 0
@@ -1303,8 +1256,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -605, y: -250.5}
-  m_SizeDelta: {x: 400, y: 50}
+  m_AnchoredPosition: {x: -605, y: -294.5}
+  m_SizeDelta: {x: 620, y: 126}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &497289650
 MonoBehaviour:
@@ -1626,7 +1579,7 @@ MeshCollider:
   m_GameObject: {fileID: 632945523}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -1807,7 +1760,6 @@ GameObject:
   - component: {fileID: 732590195}
   - component: {fileID: 732590196}
   - component: {fileID: 732590197}
-  - component: {fileID: 732590198}
   m_Layer: 0
   m_Name: Tank
   m_TagString: Player
@@ -1888,25 +1840,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7deae910b21a2142adfc1132501442e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 3
+  _maxHealth: 10
+  _currentHealth: 0
   invincible: 0
   txt: {fileID: 1226869424}
---- !u!114 &732590198
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 732590192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbb190954f5085048aeb9a3c512514dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxHealth: 5
-  _currentHealth: 0
-  deathParticles: {fileID: 3709172761492970802, guid: e1819e0de0d72a3479cb8d012441c05a, type: 3}
-  _deathSound: {fileID: 0}
 --- !u!1 &749804949
 GameObject:
   m_ObjectHideFlags: 0
@@ -2327,7 +2264,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 835302134}
-  - component: {fileID: 835302133}
   - component: {fileID: 835302132}
   - component: {fileID: 835302131}
   m_Layer: 0
@@ -2354,6 +2290,10 @@ MonoBehaviour:
   nePosition: {x: 0, y: 0, z: 0}
   swPosition: {x: 0, y: 0, z: 0}
   sePosition: {x: 0, y: 0, z: 0}
+  _maxHealth: 0
+  _currentHealth: 0
+  deathParticles: {fileID: 0}
+  _deathSound: {fileID: 0}
 --- !u!65 &835302132
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2367,19 +2307,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 22.302868, y: 4.737341, z: 2.2269688}
   m_Center: {x: -3.4596481, y: 0.0032057762, z: -0.39339542}
---- !u!114 &835302133
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 835302130}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54048647b050d914192f8d890cda1a72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  txt: {fileID: 0}
 --- !u!4 &835302134
 Transform:
   m_ObjectHideFlags: 0
@@ -2621,7 +2548,6 @@ GameObject:
   - component: {fileID: 905691957}
   - component: {fileID: 905691956}
   - component: {fileID: 905691955}
-  - component: {fileID: 905691959}
   m_Layer: 0
   m_Name: RightArm
   m_TagString: Untagged
@@ -2707,19 +2633,6 @@ Transform:
   m_Father: {fileID: 106040577}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &905691959
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 905691954}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54048647b050d914192f8d890cda1a72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  txt: {fileID: 0}
 --- !u!1 &1038491498
 GameObject:
   m_ObjectHideFlags: 0
@@ -3018,8 +2931,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -605, y: -203}
-  m_SizeDelta: {x: 400, y: 50}
+  m_AnchoredPosition: {x: -605, y: -341}
+  m_SizeDelta: {x: 620, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1226869424
 MonoBehaviour:
@@ -3259,7 +3172,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1369869591}
-  - component: {fileID: 1369869590}
   - component: {fileID: 1369869589}
   - component: {fileID: 1369869588}
   m_Layer: 0
@@ -3286,6 +3198,10 @@ MonoBehaviour:
   nePosition: {x: 0, y: 0, z: 0}
   swPosition: {x: 0, y: 0, z: 0}
   sePosition: {x: 0, y: 0, z: 0}
+  _maxHealth: 0
+  _currentHealth: 0
+  deathParticles: {fileID: 0}
+  _deathSound: {fileID: 0}
 --- !u!65 &1369869589
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3299,19 +3215,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 22.302868, y: 4.737341, z: 2.2269688}
   m_Center: {x: -3.4596481, y: 0.0032057762, z: -0.39339542}
---- !u!114 &1369869590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1369869587}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54048647b050d914192f8d890cda1a72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  txt: {fileID: 0}
 --- !u!4 &1369869591
 Transform:
   m_ObjectHideFlags: 0
@@ -3722,10 +3625,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -3907,7 +3810,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35f6588a476e75e408af65e8df5e0496, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _powerupDuration: 3
   _collectParticles: {fileID: 3709172761492970802, guid: 3063d2bd7ad33aa4ea88bc4e19097605, type: 3}
   _collectSound: {fileID: 8300000, guid: 24464e5ea2371b54c9e7a031ad092b8c, type: 3}
   state: 0

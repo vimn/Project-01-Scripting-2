@@ -7,7 +7,7 @@ public abstract class PowerUpBase : MonoBehaviour
     protected abstract void PowerUp(Player player, bool pState);
     protected abstract void PowerDown(Player player, bool pState);
 
-    [SerializeField] float _powerupDuration = 1;
+   // [SerializeField] float _powerupDuration = 1;
     [SerializeField] ParticleSystem _collectParticles;
     [SerializeField] AudioClip _collectSound;
     [SerializeField] bool state = false;

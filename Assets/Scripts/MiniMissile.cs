@@ -5,16 +5,13 @@ using UnityEngine;
 public class MiniMissile : Projectile
 {
     [SerializeField] int _damage = 1;
-
-    IDamageable boss;
     protected override void Impact(Collision target)
     {
-        boss = target.gameObject.GetComponent<IDamageable>();
-        if (boss != null)
+        IDamageable damageableObject = target.gameObject.GetComponent<IDamageable>();
+        if (damageableObject != null)
         {
-            boss.DecreaseHealth(_damage);
+            damageableObject.TakeDamage(_damage);
         }
-
 
     }
 

@@ -6,7 +6,7 @@ public class Slower : Enemy
 {
     [SerializeField] float _speedAmount =  2;
     // Start is called before the first frame update
-    protected override void PlayerImpact(IDamageable player)
+    protected override void PlayerImpact(Player player)
     {
         TankController controller = player.GetComponent<TankController>();
         //base.PlayerImpact(player);

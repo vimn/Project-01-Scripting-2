@@ -3,20 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IDamageable
 {
-    [SerializeField] int _maxHealth = 3;
-    int _currentHealth;
+    public int _maxHealth = 3;
+    public int _currentHealth;
     public bool invincible = false;
     public TextMeshProUGUI txt;
 
     TankController _tankController;
-    IDamageable damageable;
     // Start is called before the first frame update
     private void Awake()
     {
         _tankController = GetComponent<TankController>();
-        damageable = GetComponent<IDamageable>();
+        _currentHealth = _maxHealth;
     }
 
     public void IncreaseHealth(int amount) 
@@ -35,5 +34,13 @@ public class Player : MonoBehaviour
         invincible = false;
     }
 
+    public void TakeDamage(int amount)
+    {
+        Debug.Log("Player damaged");
+    }
 
+    public void Kill()
+    {
+        Debug.Log("Player killed");
+    }
 }
