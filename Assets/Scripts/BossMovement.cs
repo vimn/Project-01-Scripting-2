@@ -5,7 +5,7 @@ using UnityEngine;
 public class BossMovement : MonoBehaviour, IDamageable
 {
     public int bossPhase;
-    bool isMoving = false;
+    public bool isMoving = false;
     [SerializeField] GameObject bossBody;
     [SerializeField] Vector3 nwPosition;
     [SerializeField] Vector3 nePosition;
