@@ -9,6 +9,7 @@ public class Player : MonoBehaviour, IDamageable
     public int _currentHealth;
     public bool invincible = false;
     public TextMeshProUGUI txt;
+    public HealthBar healthBar;
 
     TankController _tankController;
     // Start is called before the first frame update
@@ -16,13 +17,13 @@ public class Player : MonoBehaviour, IDamageable
     {
         _tankController = GetComponent<TankController>();
         _currentHealth = _maxHealth;
+        healthBar.SetMaxHealth(_maxHealth);
     }
 
     public void IncreaseHealth(int amount) 
     {
         _currentHealth += amount;
-        _currentHealth = Mathf.Clamp(_currentHealth, 0, _maxHealth);
-        Debug.Log("Player's health: " + _currentHealth);
+        healthBar.SetHealth(_currentHealth);
     }
 
     public void Invincible() 
@@ -36,7 +37,8 @@ public class Player : MonoBehaviour, IDamageable
 
     public void TakeDamage(int amount)
     {
-        Debug.Log("Player damaged");
+        _currentHealth -= amount;
+        healthBar.SetHealth(_currentHealth);
     }
 
     public void Kill()

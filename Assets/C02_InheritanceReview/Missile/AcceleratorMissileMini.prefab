@@ -163,7 +163,7 @@ MonoBehaviour:
   RB: {fileID: 1656662358989127910}
   _impactParticles: {fileID: 3709172761492970802, guid: 5bb845d4e5ade3942b5ad65724c659ef, type: 3}
   _impactSound: {fileID: 8300000, guid: 028e8806209300e498a5bf8c062b96c9, type: 3}
-  _damage: 1
+  _damage: 5
 --- !u!1 &1656662359063270724
 GameObject:
   m_ObjectHideFlags: 0
