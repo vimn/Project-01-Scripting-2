@@ -11,6 +11,9 @@ public class BeamAttack : MonoBehaviour
     public Animator beam1;
     public Animator beam2;
     public Animator beam3;
+    [SerializeField] AudioClip beamSound;
+    [SerializeField] AudioClip beamSound2;
+    bool spdIncrease;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +30,11 @@ public class BeamAttack : MonoBehaviour
             StartCoroutine(beamAttack(attackSpeed, 4));
 
         }  
+      if ((boss.bossPhase >= 3) && (!spdIncrease))
+        {
+            spdIncrease = true;
+            attackSpeed -= 3;
+        }
 
     }
 
@@ -49,20 +57,25 @@ public class BeamAttack : MonoBehaviour
         {
             Debug.Log("beam1");
             beam1.SetTrigger("TrAttack");
-            
+            AudioHelper.PlayClip2D(beamSound, 1f);
+
         }
         if (randAttack == 2)
         {
             Debug.Log("beam2");
             beam2.SetTrigger("TrAttack");
-            
+            AudioHelper.PlayClip2D(beamSound, 1f);
+
         }
         if (randAttack == 3)
         {
             Debug.Log("beam3");
             beam3.SetTrigger("TrAttack");
-            
+            AudioHelper.PlayClip2D(beamSound, 1f);
+
         }
+            
+        AudioHelper.PlayClip2D(beamSound2, 1f);
         yield return new WaitForSeconds(beamTime);
         beam1.SetTrigger("TrReturn");
         beam2.SetTrigger("TrReturn");

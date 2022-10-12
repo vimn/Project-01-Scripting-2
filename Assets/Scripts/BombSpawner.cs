@@ -19,7 +19,7 @@ public class BombSpawner : MonoBehaviour
     public float spawnSpeed;
     private void Update()
     {
-        if (boss != null)
+        if (boss != null && boss._currentHealth >= 1)
         {
             StartCoroutine(spawn(spawnSpeed));
         }
@@ -164,6 +164,50 @@ public class BombSpawner : MonoBehaviour
         }
         if ((randSpawn == 4) && (boss.bossPhase == 3))
         {
+            BombSpawnPosition4();
+            BombSpawnPosition7();
+            BombSpawnPosition9();
+            BombSpawnPosition2();
+            BombSpawnPosition5();
+            BombSpawnPosition8();
+
+        }
+        if ((randSpawn == 1) && (boss.bossPhase == 4))
+        {
+            BombSpawnPosition1();
+            BombSpawnPosition2();
+            BombSpawnPosition3();
+            BombSpawnPosition4();
+            BombSpawnPosition6();
+            BombSpawnPosition8();
+            BombSpawnPosition9();
+
+        }
+        if ((randSpawn == 2) && (boss.bossPhase == 4))
+        {
+            BombSpawnPosition1();
+            BombSpawnPosition3();
+            BombSpawnPosition6();
+            BombSpawnPosition4();
+            BombSpawnPosition7();
+            BombSpawnPosition9();
+            BombSpawnPosition8();
+
+        }
+        if ((randSpawn == 3) && (boss.bossPhase == 4))
+        {
+            BombSpawnPosition1();
+            BombSpawnPosition3();
+            BombSpawnPosition6();
+            BombSpawnPosition4();
+            BombSpawnPosition2();
+            BombSpawnPosition5();
+            BombSpawnPosition8();
+
+        }
+        if ((randSpawn == 4) && (boss.bossPhase == 4))
+        {
+            BombSpawnPosition1();
             BombSpawnPosition4();
             BombSpawnPosition7();
             BombSpawnPosition9();

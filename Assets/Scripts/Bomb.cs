@@ -11,12 +11,16 @@ public class Bomb : MonoBehaviour
     [SerializeField] AudioClip explosionSound;
     private bool isExploding;
     private bool exploded;
-    int minimumDistance = 5;
+    float minimumDistance = 5.7f;
     private void Start()
     {
         mAnimator = GetComponent<Animator>();
         tank = GameObject.Find("Tank");
-        player = tank.GetComponent<Player>();
+        if(player != null)
+        {
+            player = tank.GetComponent<Player>();
+        }
+        
         isExploding = false;
         exploded = false;
     }
@@ -31,7 +35,11 @@ public class Bomb : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         mAnimator.SetTrigger("fuseStart");
-        StartCoroutine(explode(3));
+        if(player != null)
+        {
+            StartCoroutine(explode(3));
+        }
+        
     }
     IEnumerator explode(float duration)
     {
@@ -55,12 +63,15 @@ public class Bomb : MonoBehaviour
         {
             AudioHelper.PlayClip2D(explosionSound, 1f);
         }
-
-        if(Vector3.Distance(transform.position, player.transform.position) <= minimumDistance) 
+        if(player != null)
         {
-            Debug.Log("player was " + (transform.position - player.transform.position) + " close");
-            player.TakeDamage(2);
+            if(Vector3.Distance(transform.position, player.transform.position) <= minimumDistance) 
+            {
+                Debug.Log("player was " + (transform.position - player.transform.position) + " close");
+                player.TakeDamage(2);
+            }
         }
+
         
         exploded = true;
         

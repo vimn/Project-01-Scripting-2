@@ -5,11 +5,12 @@ using UnityEngine;
 public class BeamDamage : MonoBehaviour
 {
     Player player;
+    [SerializeField] BossMovement boss;
 
     private void OnTriggerEnter(Collider other)
     {
-        player = other.gameObject.GetComponent<Player>();
 
+        player = other.gameObject.GetComponent<Player>();
         if (player != null)
         {
 
@@ -21,7 +22,11 @@ public class BeamDamage : MonoBehaviour
 
     IEnumerator beamDmg(float damage)
     {
-        yield return new WaitForSeconds(3);
-        player.TakeDamage(5);
+        yield return new WaitForSeconds(1);
+        if (!boss.isMoving)
+        {
+            player.TakeDamage(1);
+        }
+        
     }
 }

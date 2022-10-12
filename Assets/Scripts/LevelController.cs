@@ -2,17 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro;
+
 
 public class LevelController : MonoBehaviour
 {
     public Player player;
     public BossMovement boss;
-    public TextMeshProUGUI bossHealth;
-    public TextMeshProUGUI playerHealth;
     [SerializeField] AudioClip _music;
+    [SerializeField] AudioClip _realMusic;
+    public GameObject originalSound;
+    bool music2;
     void Update()
     {
+        if(boss.bossPhase == 3 && !music2)
+        {
+            originalSound = GameObject.Find("Audio2D");
+            Destroy(originalSound);
+            AudioHelper.PlayClip2D(_realMusic, .2f);
+            music2 = true;
+        }
         if (Input.GetKeyDown("backspace"))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -21,11 +29,10 @@ public class LevelController : MonoBehaviour
         {
             Application.Quit();
         }
-        bossHealth.text = "Boss health: " + boss._currentHealth.ToString() + " / " + boss._maxHealth.ToString();
-        playerHealth.text = "Player health: " + player._currentHealth.ToString() + " / " + player._maxHealth.ToString();
     }
     private void Awake()
     {
+        music2 = false;
         AudioHelper.PlayClip2D(_music, .2f);
     }
 }

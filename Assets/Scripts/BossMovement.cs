@@ -11,6 +11,13 @@ public class BossMovement : MonoBehaviour, IDamageable
     [SerializeField] Vector3 nePosition;
     [SerializeField] Vector3 swPosition;
     [SerializeField] Vector3 sePosition;
+    [SerializeField] GameObject winScreen;
+    [SerializeField] MeshRenderer bossEye1;
+    [SerializeField] MeshRenderer bossEye2;
+    [SerializeField] ParticleSystem damageParticles1;
+    [SerializeField] ParticleSystem damageParticles2;
+    [SerializeField] ParticleSystem damageParticles3;
+    [SerializeField] ParticleSystem damageParticles4;
     public int _maxHealth;
     public int _currentHealth;
     public ParticleSystem deathParticles;
@@ -58,30 +65,37 @@ public class BossMovement : MonoBehaviour, IDamageable
     }
     private void Update()
     {
-        if(_currentHealth < 25 && (bossPhase == 1))
+        if(_currentHealth < 40 && (bossPhase == 1))
         {
             //int randMove = Random.Range(1, 5);
             StartCoroutine(dive(bossBody.transform, 1f));
             //MoveBoss(randMove);
             _bossHealth.material.color = Color.cyan;
+            damageParticles1.gameObject.SetActive(true);
             bossPhase = 2;
         }
-        if (_currentHealth < 15 && (bossPhase == 2))
+        if (_currentHealth < 30 && (bossPhase == 2))
         {
             //int randMove = Random.Range(1, 5);
             //MoveBoss(randMove);
             StartCoroutine(dive(bossBody.transform, 1f));
             _bossHealth.material.color = Color.yellow;
+            bossEye1.material.color = Color.red;
+            bossEye2.material.color = Color.red;
+            damageParticles2.gameObject.SetActive(true);
+            damageParticles3.gameObject.SetActive(true);
             bossPhase = 3;
         }
-        if (_currentHealth < 5 && (bossPhase == 3))
+        if (_currentHealth < 15 && (bossPhase == 3))
         {
             // int randMove = Random.Range(1, 5);
             // MoveBoss(randMove);
             StartCoroutine(dive(bossBody.transform, 1f));
             _bossHealth.material.color = Color.red;
+            damageParticles4.gameObject.SetActive(true);
             bossPhase = 4;
         }
+
         
 
     }
@@ -171,7 +185,7 @@ public class BossMovement : MonoBehaviour, IDamageable
         {
             AudioHelper.PlayClip2D(_deathSound, 1f);
         }
-
+        winScreen.SetActive(true);
         gameObject.SetActive(false);
     }
 }
